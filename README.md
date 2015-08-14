@@ -2,13 +2,35 @@
 
 A walk through and tests and Reflection for different kinds of functions in JavaScript till ES2015 spec.
 
-### How it started ?
+## Run tests
 
-This issue from React - https://github.com/facebook/react/issues/4599. The idea was to detect from a reference the type of function - arrow, class or a normal function. And to detect before instantiating if the reference is instantiable.
+### Using Node
 
-And an overview of the different types of functions by @bergus to the stackoverflow question - http://stackoverflow.com/a/31947622/556124
+```sh
+npm test
+```
 
-This repository is about the function `getFunctionType` which returns the type of function -
+### Using v8
+
+```sh
+cd src
+/path/to/d8 v8-d8.js
+```
+
+(or) if you have `d8` in your `$PATH`,
+
+```sh
+npm run v8
+```
+
+## How it started ?
+
+The idea is to detect from a reference the type of function - arrow, class or a normal function. And to detect before instantiating if the reference is instantiable.
+
++ https://github.com/facebook/react/issues/4599
++ http://stackoverflow.com/a/31947622/556124
+
+This repository is about defining the function `getFunctionType` which returns the type of function input -
 
 + arrow
 + class
@@ -16,13 +38,13 @@ This repository is about the function `getFunctionType` which returns the type o
 + generator
 + function
 
-### Assumptions and other gotchas
+## Assumptions and other gotchas
 
-##### NO TRANSPILING
+#### NO TRANSPILING
 
 + Don't transpile this using babel or traceur. It will give your absolutely wrong results.
 
-##### Requires ES6 features
+#### Requires ES6 features
 
 + arrows
 + generators
