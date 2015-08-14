@@ -8,7 +8,7 @@ load('./tests.spec.js');
 
 checks.forEach((result, fn) => {
 	let str = 'function' === typeof fn ? Function.prototype.toString.call(fn) : fn.toString();
-  let type = getFunctionType(fn);
-  assert(result, type);
+	let type = getFunctionType(fn);
+	assert(result, type);
 	print("✓ ", equispace(type, 15), str);
 });
