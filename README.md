@@ -38,6 +38,15 @@ This repository is about defining the function `getFunctionType` which returns t
 + generator
 + function
 
+## Definitions
+
+Source: http://stackoverflow.com/a/31947622/556124
+
+> + arrow functions are functions that cannot be used as constructors, and don't have a .prototype property. However, methods don't either. They inherit from Function.prototype.
++ classes are functions that can be called without new, and that have a .prototype object which is normally not empty. If extend was used, they don't inherit from Function.prototype.
++ functions are functions that can be called either way, and do have a .prototype that is normally empty. They inherit from Function.prototype.
++ generator functions are functions that do have a .prototype which inherits from the intrinsic GeneratorPrototype object, and they inherit from the intrinsic Generator object.
+
 ## Assumptions and other gotchas
 
 #### NO TRANSPILING
