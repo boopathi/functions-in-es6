@@ -1,8 +1,8 @@
 {
   "name": "functions-in-es6",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "src/get-function-type.js",
   "scripts": {
     "v8": "cd src && d8 v8-d8.js",
     "test": "node --harmony_arrow_functions --harmony_classes --harmony_object src/node.js"
