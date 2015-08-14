@@ -47,6 +47,10 @@ Source: http://stackoverflow.com/a/31947622/556124
 + functions are functions that can be called either way, and do have a .prototype that is normally empty. They inherit from Function.prototype.
 + generator functions are functions that do have a .prototype which inherits from the intrinsic GeneratorPrototype object, and they inherit from the intrinsic Generator object.
 
+## Implementation
+
+#### [`getFunctionType.js`](src/get-function-type.js)
+
 ## Assumptions and other gotchas
 
 #### NO TRANSPILING
