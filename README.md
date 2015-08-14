@@ -64,7 +64,7 @@ Source: http://stackoverflow.com/a/31947622/556124
 + Array.prototype.startsWith
 + etc...
 
-##### Function with prototypes is a class
+#### Function with prototypes is a class
 
 ```js
 // this will be treated as a class
@@ -75,7 +75,7 @@ x.prototype.a = function() {}
 function y() {}
 ```
 
-##### methods are detected as methods only when declared as methods
+#### methods are detected as methods only when declared as methods
 
 ```js
 // either via enhanced object literals
