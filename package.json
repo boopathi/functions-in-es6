@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "v8": "cd src && d8 v8-d8.js",
+    "test": "node --harmony_arrow_functions --harmony_classes --harmony_object src/node.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "boopathi",
+  "license": "MIT"
 }
