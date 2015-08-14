@@ -89,7 +89,7 @@ class x {
 }
 ```
 
-I don't know anyway to detect this as a method yet.
+I don't know anyway to detect the following as a method yet.
 
 ```js
 function y() {}
