@@ -11,7 +11,7 @@
   	// in case someone changes a function's toString method
   	const toString = Function.prototype.toString;
 
-  	// checks only for function, ignore other types
+    // check only functions
   	if ('function' !== typeof fn) return typeof fn;
 
   	// functions, classes, and generators have prototypes
@@ -38,11 +38,11 @@
   	if (fn.name && toString.call(fn).startsWith(fn.name)) return m;
 
   	// function expressions with prototypes removed always
-  	// start with function keywords. All else is a fat arrow
+    // start with the function keyword. All else is fat arrow
   	return toString.call(fn).startsWith('function') ? f : a;
   }
 
-  // export for node
+  // export for CommonJS (node)
   if ('undefined' !== typeof module) module.exports = getFunctionType;
   // for others expose to whatever scope is assigned
   else scope.getFunctionType = getFunctionType;

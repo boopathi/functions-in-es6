@@ -84,9 +84,7 @@
   checks.set(O.a, f); // should this be a method. But how do you detect
   checks.set(O.b, a); // same goes here
 
-  // export for node
   if ('undefined' !== typeof module) module.exports = checks;
-  // for others expose to whatever scope is assigned
   else scope.checks = checks;
 
 })(this);

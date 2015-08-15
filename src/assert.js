@@ -11,9 +11,7 @@
     }
   }
 
-  // export for node
   if ('undefined' !== typeof module) module.exports = assert;
-  // for others expose to whatever scope is assigned
   else scope.assert = assert;
 
 })(this);
