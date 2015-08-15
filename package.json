@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/get-function-type.js",
   "scripts": {
-    "v8": "cd src && d8 v8-d8.js",
-    "test": "node --harmony_arrow_functions --harmony_classes --harmony_object src/node.js"
+    "v8": "cd src && d8 test.js",
+    "test": "node --harmony_arrow_functions --harmony_classes --harmony_object --harmony_spreadcalls src/test.js"
   },
   "keywords": [],
   "author": "boopathi",
