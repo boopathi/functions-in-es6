@@ -72,6 +72,7 @@
   checks.set(M[0], 'string');
   checks.set(M[1], 'object');
   checks.set(M[2], 'number');
+  checks.set(N, f);
 
   // extended
   let _O = function() {}
