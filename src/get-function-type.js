@@ -1,23 +1,23 @@
 ;(function(scope) {
   'use strict';
 
-  function getFunctionType(fn) {
-  	const f = 'function';
-  	const c = 'class';
-  	const a = 'arrow';
-  	const g = 'generator';
-  	const m = 'method';
+	const f = 'function';
+	const c = 'class';
+	const a = 'arrow';
+	const g = 'generator';
+	const m = 'method';
 
-  	// in case someone changes a function's toString method
-  	const toString = Function.prototype.toString;
+	// in case someone changes a function's toString method
+	const toString = Function.prototype.toString;
+	// because GeneratorFunction isn't available globally
+	const GeneratorFunction = function* () {}.constructor;
+  function getFunctionType(fn) {
 
     // check only functions
   	if ('function' !== typeof fn) return typeof fn;
 
   	// functions, classes, and generators have prototypes
   	if ('object' === typeof fn.prototype) {
-  		// because GeneratorFunction isn't available globally
-  		const GeneratorFunction = function* () {}.constructor;
 
   		// generator function test
   		if (fn instanceof GeneratorFunction) return g;
