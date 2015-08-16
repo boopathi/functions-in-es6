@@ -14,7 +14,7 @@ npm test
 
 ```sh
 cd src
-/path/to/d8 v8-d8.js
+/path/to/d8 test.js
 ```
 
 (or) if you have `d8` in your `$PATH`,
