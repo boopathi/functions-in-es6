@@ -6,11 +6,13 @@
   const a = 'arrow';
   const g = 'generator';
   const m = 'method';
+  const gm = 'generator-method';
 
   // in case someone changes a function's toString method
   const toString = Function.prototype.toString;
   // because GeneratorFunction isn't available globally
   const GeneratorFunction = function* () {}.constructor;
+
   function getFunctionType(fn) {
 
     // check only functions
@@ -20,7 +22,10 @@
     if ('object' === typeof fn.prototype) {
 
       // generator function test
-      if (fn instanceof GeneratorFunction) return g;
+      if (fn instanceof GeneratorFunction)
+        // generator methods have prototypes
+        // so we place the check here inside this if
+        return toString.call(fn).startsWith('*') ? gm : g;
 
       // explicitly declared as class
       if (toString.call(fn).startsWith('class')) return c;

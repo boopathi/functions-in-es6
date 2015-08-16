@@ -1,6 +1,6 @@
 # functions-in-es6
 
-A walk through and tests and Reflection for different kinds of functions in JavaScript till ES2015 spec.
+A walk through, Reflection and tests for different kinds of functions in JavaScript till ES2015 spec.
 
 ## Run tests
 
@@ -37,6 +37,7 @@ This repository is about defining the function `getFunctionType` which returns t
 + method
 + generator
 + function
++ generator-method
 
 ## Definitions
 
@@ -47,9 +48,67 @@ Source: http://stackoverflow.com/a/31947622/556124
 + functions are functions that can be called either way, and do have a .prototype that is normally empty. They inherit from Function.prototype.
 + generator functions are functions that do have a .prototype which inherits from the intrinsic GeneratorPrototype object, and they inherit from the intrinsic Generator object.
 
+#### Arrow
+
+```js
+let A = () => {};
+let B = {
+  x: () => {}
+};
+```
+
+#### Class
+
+```js
+class A {}
+
+function B() {}
+B.prototype.x = function() {};
+```
+
+#### Method
+
+```js
+class A {
+  method() {}
+}
+let B = {
+  method() {}
+};
+```
+
+#### Generator
+
+```js
+function *A() {}
+let B = {
+  x: function *() {}
+};
+```
+
+#### Function
+
+```js
+function A() {}
+let B = {
+  x: function() {}
+};
+```
+
+#### Generator Method
+
+```js
+let A = {
+  *x() {}
+};
+class B {
+  *x() {}
+}
+```
+
 ## Implementation
 
-#### [`getFunctionType.js`](src/get-function-type.js)
+#### [`get-function-type.js`](src/get-function-type.js)
 
 ## Assumptions and other gotchas
 
@@ -93,9 +152,27 @@ class x {
 }
 ```
 
-I don't know anyway to detect the following as a method yet.
+I don't know anyway to detect the following as methods yet.
 
 ```js
 function y() {}
 y.prototype.method = function() {};
+y.prototype.genmethod = function*() {};
+```
+
+#### generator methods have prototypes
+
+```js
+let x = {
+  a() {}
+  *method() {}
+};
+// x.a.prototype does NOT exist
+// x.method.prototype exists
+class y {
+  a() {}
+  *method() {}
+}
+// new y().a.prototype does NOT exist
+// new y().method.prototype exists
 ```

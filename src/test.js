@@ -15,9 +15,13 @@
 
   scope.checks.forEach((result, fn) => {
     let str = 'function' === typeof fn ? Function.prototype.toString.call(fn) : fn.toString();
-  	let type = scope.getFunctionType(fn);
-  	scope.assert(result, type);
-    let message = ["✓ ", scope.equispace(type, 15), str];
+    let type = scope.getFunctionType(fn);
+    scope.assert(result === type, `Assert Error
+      Function: ${str}, ${fn.prototype}
+      Expected: ${result}
+      Actual:   ${type}
+    `);
+    let message = ["✓ ", scope.equispace(type, 20), str];
     if ('undefined' !== typeof console)
       console.log(...message);
     else if ('undefined' !== typeof print)

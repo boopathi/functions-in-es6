@@ -6,6 +6,7 @@
   const c = 'class';
   const g = 'generator';
   const m = 'method';
+  const gm = 'generator-method';
 
   let checks = new Map();
 
@@ -32,16 +33,19 @@
 
   // methods and keyvalue pairs
   let H = {
-  	a() {},
-  	b: function() {},
-  	c: () => {}
+    a() {},
+    b: function() {},
+    c: () => {},
+    *d() {},
+    e: function*() {}
   };
   let _I = class {
-  	a() {}
+    a() {}
   };
   let I = new _I();
   let _J = class extends _I {
-  	b() {}
+    b() {}
+    *c() {}
   };
   let J = new _J();
 
@@ -49,18 +53,21 @@
   checks.set(H.a, m);
   checks.set(H.b, f);
   checks.set(H.c, a);
+  checks.set(H.d, gm);
+  checks.set(H.e, g);
   checks.set(I.a, m);
   checks.set(J.a, m);
   checks.set(J.b, m);
+  checks.set(J.c, gm);
 
   // possible hacks
   let K = function() { '=>' };
   K.prototype = void 0;
   let L = () => (function(){});
   let M = [
-  	'function() {}',
-  	{},
-  	0
+    'function() {}',
+    {},
+    0
   ];
   let N = function() {};
   N.toString = function() { return "" };
