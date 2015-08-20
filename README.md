@@ -114,7 +114,7 @@ class B {
 
 #### NO TRANSPILING
 
-+ Don't transpile this using babel or traceur. It will give your absolutely wrong results.
++ Don't transpile this using babel or traceur. It will give you absolutely wrong results.
 
 #### Requires ES6 features
 
