@@ -176,3 +176,5 @@ class y {
 // new y().a.prototype does NOT exist
 // new y().method.prototype exists
 ```
+
+Why ? - http://stackoverflow.com/q/32039390/556124

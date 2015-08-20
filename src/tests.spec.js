@@ -87,10 +87,15 @@
   _O.prototype.b = () => {};
   let O = new _O();
 
+  let P = {
+    *[Symbol.iterator]() {}
+  };
+
   // results
   checks.set(_O, c); // because it has prototypes defined
   checks.set(O.a, f); // should this be a method. But how do you detect
   checks.set(O.b, a); // same goes here
+  checks.set(P[Symbol.iterator], gm);
 
   if ('undefined' !== typeof module) module.exports = checks;
   else scope.checks = checks;
