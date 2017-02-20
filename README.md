@@ -1,5 +1,7 @@
 # functions-in-es6
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/boopathi/functions-in-es6.svg)](https://greenkeeper.io/)
+
 A walk through, Reflection and tests for different kinds of functions in JavaScript till ES2015 spec.
 
 ## Run tests
